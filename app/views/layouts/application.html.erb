@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ServerInventory</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <div class="head">
+      <%= content_tag(:div, (link_to "Servers", servers_path), class: active_current_path(servers_path)) %>
+      <%= content_tag(:div, (link_to "Spares", spares_path), class: active_current_path(spares_path)) %>
+    </div>
+
+    <div class="content">
+      <%= yield %>
+    </div>
+  </body>
+</html>

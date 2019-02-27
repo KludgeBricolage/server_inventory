@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @spare.description %>
+</p>
+
+<p>
+  <strong>Date delivered:</strong>
+  <%= @spare.date_delivered %>
+</p>
+
+<p>
+  <strong>Date warranty:</strong>
+  <%= @spare.date_warranty %>
+</p>
+
+<p>
+  <strong>Stock:</strong>
+  <%= @spare.stock %>
+</p>
+
+<p>
+  <strong>Balance:</strong>
+  <%= @spare.balance %>
+</p>
+
+<%= link_to 'Edit', edit_spare_path(@spare) %> |
+<%= link_to 'Back', spares_path %>

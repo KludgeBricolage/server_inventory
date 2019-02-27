@@ -1,0 +1,2 @@
+class Spare < ApplicationRecord
+end
