@@ -5,10 +5,12 @@
     <td><%= link_to spare.warranty || '', spare %></td>
     <td><%= link_to spare.stock || '', spare %></td>
     <td><%= link_to spare.balance || '', spare %></td>
-    <td>
-      <%= link_to fa_icon("edit"), edit_spare_path(spare) %>
-      <%= link_to fa_icon("trash"), spare, method: :delete, data: { confirm: 'Are you sure?' } %>
-    </td>
+    <% if current_user %>
+      <td class="actions">
+        <%= link_to fa_icon("edit"), edit_spare_path(spare) %>
+        <%= link_to fa_icon("trash"), spare, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </td>
+    <% end %>
   </tr>
 <% end %>
 

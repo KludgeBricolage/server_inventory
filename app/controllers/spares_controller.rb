@@ -1,6 +1,7 @@
 class SparesController < ApplicationController
   before_action :set_spare, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
+  
   # GET /spares
   # GET /spares.json
   def index

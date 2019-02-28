@@ -27,7 +27,9 @@
   </span>
 
   <h3>
-    <%= link_to 'Back', spares_path %> |
-    <%= link_to 'Edit', edit_spare_path(@spare) %> <%= fa_icon("edit") %>
+    <%= link_to 'Back', spares_path %>
+    <% if current_user %>
+      | <%= link_to 'Edit', edit_spare_path(@spare) %> <%= fa_icon("edit") %>
+    <% end %>
   </h3>
 </div>

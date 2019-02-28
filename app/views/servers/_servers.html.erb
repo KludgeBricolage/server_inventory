@@ -3,10 +3,12 @@
     <td><%= link_to server.host_name || '', server %></td>
     <td><%= link_to server.model || '', server %></td>
     <td><%= link_to server.serial_no || '', server %></td>
-    <td>
-      <%= link_to fa_icon("edit"), edit_server_path(server) %>
-      <%= link_to fa_icon("trash"), server, method: :delete, data: { confirm: 'Are you sure?' } %>
-    </td>
+    <% if current_user %>
+      <td class="actions">
+        <%= link_to fa_icon("edit"), edit_server_path(server) %>
+        <%= link_to fa_icon("trash"), server, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </td>
+    <% end %>
   </tr>
 <% end %>
 

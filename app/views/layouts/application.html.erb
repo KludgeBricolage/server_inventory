@@ -21,6 +21,11 @@
     <div class="head">
       <%= content_tag(:div, (link_to "Servers", servers_path), class: active_current_path(servers_path)) %>
       <%= content_tag(:div, (link_to "Spares", spares_path), class: active_current_path(spares_path)) %>
+      <% if current_user %>
+        <%= content_tag(:div, (link_to "#{current_user.full_name} | Logout", destroy_user_session_path, method: :delete)) %>
+      <% else %>
+        <%= content_tag(:div, (link_to "Login", new_user_session_path), class: active_current_path(new_user_session_path)) %>
+      <% end%>
     </div>
 
     <div class="container">
