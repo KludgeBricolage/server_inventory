@@ -12,10 +12,14 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
 
+@import "font-awesome";
+
 $gray: #EAE9EE;
-$darkgray: #8C8B8E;
+$light-gray: #f6f6f8;
+$dark-gray: #8C8B8E;
 
 html {
   font-family: Helvetica, Arial, sans-serif;
@@ -44,12 +48,67 @@ a { text-decoration: none; color: #000; }
   background-color: $gray;
   padding-left: 1em;
   div {
-      margin-left: 2px;
-      padding: 1em;
-      &:hover, &.active {
-          background-color: #fff;
-      }
+    margin-left: 2px;
+    padding: 1em;
+    &:hover, &.active {
+      background-color: #fff;
+    }
   }
 }
 
-.container { margin: 1em; }
+.container { 
+  padding: 4em; 
+  margin: auto;
+  width: 75%;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+  border: 1px solid #cbcbcb;
+  width: 100%;
+  table-layout: fixed;
+
+  thead {
+    background-color: $gray;
+    color: #000;
+    text-align: center;
+    vertical-align: bottom;
+  }
+
+  td, th {
+    border-left: 1px solid #cbcbcb;
+    border-width: 0 0 0 1px;
+    font-size: inherit;
+    margin: 0;
+    overflow: visible; 
+    padding: 0.5em 1em; 
+    word-break: break-all;
+    &:first-child {
+      border-left-width: 0;
+    }
+    &:last-child {
+      text-align: center;
+      width: 10% !important;
+    }
+  }
+
+  tbody {
+    tr {
+      cursor: pointer;
+      &:hover {
+        border: 1.5px solid $dark-gray;
+      }
+      &:nth-child(2) {
+        background-color: $light-gray;
+      }
+    }
+  }
+}
+
+.section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

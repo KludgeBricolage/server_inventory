@@ -10,15 +10,16 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
+    <div class="pop">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
     <div class="head">
       <%= content_tag(:div, (link_to "Servers", servers_path), class: active_current_path(servers_path)) %>
       <%= content_tag(:div, (link_to "Spares", spares_path), class: active_current_path(spares_path)) %>
     </div>
 
-    <div class="content">
+    <div class="container">
       <%= yield %>
     </div>
   </body>

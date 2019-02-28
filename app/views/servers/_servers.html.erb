@@ -1,10 +1,18 @@
 <% servers.each do |server| %>
-  <tr>
+  <tr data-link="<%=server_path(server.id)%>" onclick="redirect(this)">
     <td><%= server.host_name %></td>
     <td><%= server.model %></td>
     <td><%= server.serial_no %></td>
-    <td><%= link_to 'Show', server %></td>
-    <td><%= link_to 'Edit', edit_server_path(server) %></td>
-    <td><%= link_to 'Destroy', server, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td>
+      <%= link_to fa_icon("edit"), edit_server_path(server) %>
+      <%= link_to fa_icon("trash"), server, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </td>
   </tr>
 <% end %>
+
+<script>
+  function redirect(element) {
+    var link = element.getAttribute("data-link")
+    window.location.href = this.location.origin + link
+  }
+</script>
