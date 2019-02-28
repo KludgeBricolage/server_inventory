@@ -1,0 +1,12 @@
+<% spares.each do |spare| %>
+  <tr>
+    <td><%= spare.description %></td>
+    <td><%= spare.date_delivered %></td>
+    <td><%= spare.date_warranty %></td>
+    <td><%= spare.stock %></td>
+    <td><%= spare.balance %></td>
+    <td><%= link_to 'Show', spare %></td>
+    <td><%= link_to 'Edit', edit_spare_path(spare) %></td>
+    <td><%= link_to 'Destroy', spare, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>

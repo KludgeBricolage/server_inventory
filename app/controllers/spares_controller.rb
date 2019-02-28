@@ -4,7 +4,12 @@ class SparesController < ApplicationController
   # GET /spares
   # GET /spares.json
   def index
-    @spares = Spare.all
+    @spares = spare_params[:q] ? Spare.search(spare_params[:q]): Spare.all
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /spares/1
@@ -69,6 +74,6 @@ class SparesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def spare_params
-      params.require(:spare).permit(:description, :date_delivered, :date_warranty, :stock, :balance)
+      params.permit(:description, :date_delivered, :date_warranty, :stock, :balance, :q)
     end
 end

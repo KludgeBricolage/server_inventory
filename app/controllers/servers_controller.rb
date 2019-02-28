@@ -4,7 +4,12 @@ class ServersController < ApplicationController
   # GET /servers
   # GET /servers.json
   def index
-    @servers = Server.all
+    @servers = server_params[:q] ? Server.search(server_params[:q]) : Server.all
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /servers/1
@@ -69,6 +74,6 @@ class ServersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def server_params
-      params.require(:server).permit(:host_name, :model, :serial_no)
+      params.permit(:host_name, :model, :serial_no, :q)
     end
 end

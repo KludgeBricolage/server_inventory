@@ -2,6 +2,11 @@
 
 <h1>Spares</h1>
 
+<%= form_for :spares, remote: true, method: :get do |f| %>
+  <%= text_field_tag :q, params[:q] %>
+  <%= submit_tag 'Search', name: nil %>
+<% end %>
+
 <table>
   <thead>
     <tr>
@@ -14,19 +19,8 @@
     </tr>
   </thead>
 
-  <tbody>
-    <% @spares.each do |spare| %>
-      <tr>
-        <td><%= spare.description %></td>
-        <td><%= spare.date_delivered %></td>
-        <td><%= spare.date_warranty %></td>
-        <td><%= spare.stock %></td>
-        <td><%= spare.balance %></td>
-        <td><%= link_to 'Show', spare %></td>
-        <td><%= link_to 'Edit', edit_spare_path(spare) %></td>
-        <td><%= link_to 'Destroy', spare, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <tbody id="spares">
+    <%=render partial: 'spares', locals: {spares: @spares} %>
   </tbody>
 </table>
 
