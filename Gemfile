@@ -38,9 +38,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # Login authentication
 gem 'devise'
-
 # Icons
 gem "font-awesome-rails"
+# Date picker
+gem 'flatpickr'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -18,12 +18,12 @@
 
   <div class="field">
     <%= form.label :date_delivered %>
-    <%= form.datetime_select :date_delivered %>
+    <%= form.text_field :date_delivered %>
   </div>
 
   <div class="field">
     <%= form.label :date_warranty %>
-    <%= form.datetime_select :date_warranty %>
+    <%= form.text_field :date_warranty %>
   </div>
 
   <div class="field">
@@ -40,3 +40,10 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+<script>
+  document.addEventListener('turbolinks:load', function () {
+    flatpickr('#spare_date_delivered', { dateFormat: "M-d-Y" });
+    flatpickr('#spare_date_warranty', {dateFormat: "M-d-Y"});
+  })
+</script>
