@@ -1,4 +1,4 @@
-<%= form_with(model: server, local: true) do |form| %>
+<%= form_with(model: server, local: true, class: 'single', id: 'server_form') do |form| %>
   <% if server.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(server.errors.count, "error") %> prohibited this server from being saved:</h2>
@@ -10,23 +10,28 @@
       </ul>
     </div>
   <% end %>
+  <h2><%= title %></h2>
 
-  <div class="field">
-    <%= form.label :host_name %>
-    <%= form.text_field :host_name %>
-  </div>
+  <span>
+    <%= form.label :host_name, class: 'label'%>
+    <%= form.text_field :host_name, class: 'value' %>
+  </span>
 
-  <div class="field">
-    <%= form.label :model %>
-    <%= form.text_field :model %>
-  </div>
+  <span>
+    <%= form.label :model, class: 'label'%>
+    <%= form.text_field :model, class: 'value'%>
+  </span>
 
-  <div class="field">
-    <%= form.label :serial_no %>
-    <%= form.text_field :serial_no %>
-  </div>
+  <span>
+    <%= form.label :serial_no, class: 'label' %>
+    <%= form.text_field :serial_no, class: 'value' %>
+  </span>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <h3>
+    <%= link_to 'Back', servers_path %> |
+    <% unless action_name == "new"%>
+      <%= link_to 'Edit', edit_server_path(@server) %> <%= fa_icon("edit") %> |
+    <% end %>
+    <%= link_to 'Save', "", onclick: "document.getElementById('server_form').submit()" %> <%= fa_icon("save") %>
+  </h3>
 <% end %>

@@ -1,13 +1,1 @@
-<h1>New Spare</h1>
-
-<%= render 'form', spare: @spare %>
-
-<%= link_to 'Back', spares_path %>
-
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    flatpickr('#spare_date_delivered', {dateFormat: "M-d-Y"});
-    flatpickr('#spare_date_warranty', {dateFormat: "M-d-Y"});
-  })
-</script>
+<%= render 'form', spare: @spare, title: "New Spare" %>

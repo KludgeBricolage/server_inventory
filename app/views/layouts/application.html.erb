@@ -10,9 +10,13 @@
   </head>
 
   <body>
-    <div class="pop">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+    <div class="toast">
+      <% if notice %>
+        <p class="notice"><%= notice %></p> 
+      <% end %>
+      <% if alert %>
+        <p class="alert"><%= alert %></p>
+      <% end %>
     </div>
     <div class="head">
       <%= content_tag(:div, (link_to "Servers", servers_path), class: active_current_path(servers_path)) %>

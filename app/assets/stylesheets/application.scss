@@ -57,6 +57,36 @@ a { text-decoration: none; color: #000; }
   }
 }
 
+.single {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  h2 { 
+    margin: 5px;
+    text-align: left;
+  }
+  span {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    .label, .value { 
+      width: 50%;
+    }
+    .label { 
+      font-weight: bold;
+      text-align: right;
+      margin-right: 3px;
+    }
+    .value { 
+      text-align: left;
+      margin-left: 3px;
+    }
+  }
+  h3 {
+    text-align: right;
+  }
+}
+
 .container { 
   padding: 4em; 
   margin: auto;
@@ -95,16 +125,15 @@ table {
     }
   }
 
-  tbody {
-    tr {
-      cursor: pointer;
-      &:hover {
-        border: 1.5px solid $dark-gray;
-      }
-      &:nth-child(2) {
-        background-color: $light-gray;
-      }
-    }
+  td { 
+    a { display: block }
+    &:last-child a { display: inline-block }
+  }
+
+  tbody tr {
+    cursor: pointer;
+    &:hover { border: 1.5px solid $dark-gray; }
+    &:nth-child(2) { background-color: $light-gray; }
   }
 }
 
@@ -112,4 +141,23 @@ table {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.toast {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  p {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    &.notice { 
+      border: 1px solid green;
+      color: green;
+    }
+    &.alert { 
+      border: 1px solid red;
+      color: red;
+    }
+  }
 }

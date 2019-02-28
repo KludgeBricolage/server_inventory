@@ -1,19 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div class="single">
+  <h2>Server #<%= @server.id %></h2>
 
-<p>
-  <strong>Host name:</strong>
-  <%= @server.host_name %>
-</p>
+  <span>
+    <p class="label">Host name</p>
+    <p class="value"><%= @server.host_name %></p>
+  </span>
 
-<p>
-  <strong>Model:</strong>
-  <%= @server.model %>
-</p>
+  <span>
+    <p class="label">Model</p>
+    <p class="value"><%= @server.model %></p>
+  </span>
 
-<p>
-  <strong>Serial no:</strong>
-  <%= @server.serial_no %>
-</p>
+  <span>
+    <p class="label">Serial no</p>
+    <p class="value"><%= @server.serial_no %></p>
+  </span>
 
-<%= link_to 'Edit', edit_server_path(@server) %> |
-<%= link_to 'Back', servers_path %>
+  <h3>
+    <%= link_to 'Back', servers_path %> |
+    <%= link_to 'Edit', edit_server_path(@server) %> <%= fa_icon("edit") %>
+  </h3>
+</div>

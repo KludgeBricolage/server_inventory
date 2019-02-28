@@ -1,8 +1,8 @@
 <% servers.each do |server| %>
-  <tr data-link="<%=server_path(server.id)%>" onclick="redirect(this)">
-    <td><%= server.host_name %></td>
-    <td><%= server.model %></td>
-    <td><%= server.serial_no %></td>
+  <tr data-link="<%=server_path(server.id)%>">
+    <td><%= link_to server.host_name || '', server %></td>
+    <td><%= link_to server.model || '', server %></td>
+    <td><%= link_to server.serial_no || '', server %></td>
     <td>
       <%= link_to fa_icon("edit"), edit_server_path(server) %>
       <%= link_to fa_icon("trash"), server, method: :delete, data: { confirm: 'Are you sure?' } %>

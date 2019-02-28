@@ -1,29 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div class="single">
+  <h2>Spare #<%= @spare.id %></h2>
 
-<p>
-  <strong>Description:</strong>
-  <%= @spare.description %>
-</p>
+  <span>
+    <p class="label">Description</p>
+    <p class="value"><%= @spare.description %></p>
+  </span>
 
-<p>
-  <strong>Date delivered:</strong>
-  <%= @spare.date_delivered %>
-</p>
+  <span>
+    <p class="label">Date delivered</p>
+    <p class="value"><%= @spare.delivered %></p>
+  </span>
 
-<p>
-  <strong>Date warranty:</strong>
-  <%= @spare.date_warranty %>
-</p>
+  <span>
+    <p class="label">Date warranty</p>
+    <p class="value"><%= @spare.warranty %></p>
+  </span>
 
-<p>
-  <strong>Stock:</strong>
-  <%= @spare.stock %>
-</p>
+  <span>
+    <p class="label">Stock</p>
+    <p class="value"><%= @spare.stock %></p>
+  </span>
 
-<p>
-  <strong>Balance:</strong>
-  <%= @spare.balance %>
-</p>
+  <span>
+    <p class="label">Balance</p>
+    <p class="value"><%= @spare.balance %></p>
+  </span>
 
-<%= link_to 'Edit', edit_spare_path(@spare) %> |
-<%= link_to 'Back', spares_path %>
+  <h3>
+    <%= link_to 'Back', spares_path %> |
+    <%= link_to 'Edit', edit_spare_path(@spare) %> <%= fa_icon("edit") %>
+  </h3>
+</div>

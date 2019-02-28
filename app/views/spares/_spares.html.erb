@@ -1,10 +1,10 @@
 <% spares.each do |spare| %>
-  <tr data-link="<%=spare_path(spare.id)%>" onclick="redirect(this)">
-    <td><%= spare.description %></td>
-    <td><%= spare.delivered %></td>
-    <td><%= spare.warranty %></td>
-    <td><%= spare.stock %></td>
-    <td><%= spare.balance %></td>
+  <tr data-link="<%=spare_path(spare.id)%>">
+    <td><%= link_to spare.description || '', spare %></td>
+    <td><%= link_to spare.delivered || '', spare %></td>
+    <td><%= link_to spare.warranty || '', spare %></td>
+    <td><%= link_to spare.stock || '', spare %></td>
+    <td><%= link_to spare.balance || '', spare %></td>
     <td>
       <%= link_to fa_icon("edit"), edit_spare_path(spare) %>
       <%= link_to fa_icon("trash"), spare, method: :delete, data: { confirm: 'Are you sure?' } %>
