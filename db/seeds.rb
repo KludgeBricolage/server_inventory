@@ -5,6 +5,7 @@ user.email = "test@test.com"
 user.password = "password"
 user.first_name = "Jesus"
 user.last_name = "Hordejan"
+user.role = 10
 user.save!
 
 p "Creating test servers"
