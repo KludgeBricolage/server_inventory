@@ -1,8 +1,8 @@
 <% spares.each do |spare| %>
   <tr data-link="<%=spare_path(spare.id)%>" onclick="redirect(this)">
     <td><%= spare.description %></td>
-    <td><%= spare.date_delivered %></td>
-    <td><%= spare.date_warranty %></td>
+    <td><%= spare.delivered %></td>
+    <td><%= spare.warranty %></td>
     <td><%= spare.stock %></td>
     <td><%= spare.balance %></td>
     <td>
