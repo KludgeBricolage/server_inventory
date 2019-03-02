@@ -1,15 +1,17 @@
-p "Creating a user"
-
+p "Creating an admin"
 user = User.new
-user.email = "test@test.com"
+user.username = "admin"
 user.password = "password"
-user.first_name = "Jesus"
-user.last_name = "Hordejan"
 user.role = 10
 user.save!
 
-p "Creating test servers"
+p "Creating a user"
+user = User.new
+user.username = "regular"
+user.password = "password"
+user.save!
 
+p "Creating test servers"
 3.times do |i|
   server = Server.new
   server.host_name = "192.168.1.#{i+1}"
@@ -19,7 +21,6 @@ p "Creating test servers"
 end
 
 p "Creating test spares"
-
 3.times do |i|
   spare = Spare.new
   spare.description = "Description #{i+1}"
