@@ -18,6 +18,10 @@ class User < ApplicationRecord
     false
   end
 
+  def postpone_email_change?
+   false 
+end
+
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if username = conditions.delete(:username)
