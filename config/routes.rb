@@ -5,4 +5,6 @@ Rails.application.routes.draw do
 
   resources :servers
   resources :spares
+  # resources :admins
+  resources :users, controller: "admins"
 end

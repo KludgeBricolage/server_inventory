@@ -1,0 +1,18 @@
+<% users.each do |user| %>
+  <tr data-link="<%=user_path(user.id)%>">
+    <td><%= link_to user.username || '', user %></td>
+    <td><%= link_to user.role || '', user %></td>
+    <% if current_user %>
+      <td class="actions">
+        <%= link_to fa_icon("edit"), edit_user_path(user) %>
+        <%= link_to fa_icon("trash"), user, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </td>
+    <% end %>
+<% end %>
+
+<script>
+  function redirect(element) {
+    var link = element.getAttribute("data-link")
+    window.location.href = this.location.origin + link
+  }
+</script>

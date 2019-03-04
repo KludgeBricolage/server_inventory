@@ -29,8 +29,8 @@
 
   <h3>
     <%= link_to 'Back', servers_path %> |
-    <% unless action_name == "new"%>
-      <%= link_to 'Edit', edit_server_path(@server) %> <%= fa_icon("edit") %> |
+    <% if action_name == "edit"%>
+      <%= link_to 'New', new_server_path %> <%= fa_icon("plus") %> |
     <% end %>
     <%= link_to 'Save', "", onclick: "document.getElementById('server_form').submit()" %> <%= fa_icon("save") %>
   </h3>

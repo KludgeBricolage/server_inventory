@@ -1,0 +1,27 @@
+<div class="section">
+  <h2>Users List</h2>
+
+  <%= form_for :users, remote: true, method: :get do |f| %>
+    <%= text_field_tag :q, params[:q] %>
+    <%= f.button fa_icon "search" %>
+    <%= link_to new_user_path do %>
+      <%= f.button fa_icon("plus") %>
+    <% end %>
+  <% end %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Role</th>
+      <% if current_user %>
+        <th>Actions</th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody id="users">
+    <%=render partial: 'users', locals: {users: @users} %>
+  </tbody>
+</table>

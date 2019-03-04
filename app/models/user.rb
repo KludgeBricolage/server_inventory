@@ -1,17 +1,20 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable,
          :recoverable, :rememberable, :validatable
 
   enum role: { regular: 0, admin: 10 }
 
 
-  # devise :database_authenticatable,
-  #        :trackable, :lockable, :validatable
+  scope :search, -> (query) { where("username LIKE ? OR role LIKE ?",  "%#{query}%","%#{query}%") }
 
   def email_required?
     false
+  end
+  
+  def email_changed? 
+    false 
   end
   
   def will_save_change_to_email?

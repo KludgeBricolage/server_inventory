@@ -1,0 +1,20 @@
+<div class="single">
+  <h2>User #<%= @user.id %></h2>
+
+  <span>
+    <p class="label">Username</p>
+    <p class="value"><%= @user.username %></p>
+  </span>
+
+  <span>
+    <p class="label">Role</p>
+    <p class="value"><%= @user.role %></p>
+  </span>
+
+  <h3>
+    <%= link_to 'Back', users_path %>
+    <% if current_user %>
+      | <%= link_to 'Edit', edit_user_path(@user) %> <%= fa_icon("edit") %>
+    <% end %>
+  </h3>
+</div>
