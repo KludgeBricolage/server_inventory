@@ -5,8 +5,13 @@ class SparesController < ApplicationController
   # GET /spares
   # GET /spares.json
   def index
-    @spares = params[:q] ? Spare.search(params[:q]): Spare.all
-
+    if request.path.include? "/spare/"
+      spares = Spare.where(category: params[:category])
+      @spares = params[:q] ? spares.search(params[:q]) : spares
+    else
+      @spares = params[:q] ? Spare.search(params[:q]) : Spare.all
+    end
+    
     respond_to do |format|
       format.html
       format.js

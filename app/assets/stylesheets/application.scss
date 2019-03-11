@@ -52,12 +52,26 @@ a { text-decoration: none; color: #000; }
   div {
     margin-left: 2px;
     padding: 1em;
-    &:hover, &.active {
-      background-color: #fff;
+    position: relative;
+    &:hover, &.active { background-color: #fff; }
+    &:last-child { margin-left: auto; }
+    &:hover ul.dropdown { display: block; }
+
+    ul.dropdown{
+      display: none;
+      background-color: $gray;
+      padding: 0;
+      position: absolute;
+      z-index: 999;
+      left: 0;
+      li {
+        display: block;
+        padding: 1em;
+        white-space: nowrap;
+        &:hover { background-color: #fff; }
+      }
     }
-    &:last-child {
-      margin-left: auto;
-    }
+    
   }
 }
 

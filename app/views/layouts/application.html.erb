@@ -20,7 +20,14 @@
     </div>
     <div class="head">
       <%= content_tag(:div, (link_to "Servers", servers_path), class: active_current_path(servers_path)) %>
-      <%= content_tag(:div, (link_to "Spares", spares_path), class: active_current_path(spares_path)) %>
+      <div class=<%= active_current_path(spares_path) %>> 
+        <%=link_to "Spares", spares_path %>
+        <ul class="dropdown">
+        <% Server::SERVER_LIST.each_with_index do |server, i| %>
+          <li><%= link_to server, spares_category_path(i)%></li>
+        <% end%>
+        </ul>
+      </div>
       <% if current_user && current_user.admin?%>
         <%= content_tag(:div, (link_to "Users", users_path), class: active_current_path(users_path)) %>
       <% end %>

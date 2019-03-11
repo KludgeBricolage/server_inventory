@@ -7,7 +7,7 @@ class User < ApplicationRecord
   enum role: { regular: 0, admin: 10 }
 
 
-  scope :search, -> (query) { where("username LIKE ? OR role LIKE ?",  "%#{query}%","%#{query}%") }
+  scope :search, -> (query) { where("username LIKE ? OR role LIKE ? OR first_name LIKE ? OR last_name LIKE ?",  "%#{query}%","%#{query}%", "%#{query}%", "%#{query}%") }
 
   def email_required?
     false

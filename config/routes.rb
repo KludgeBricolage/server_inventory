@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :servers
   resources :spares
-  # resources :admins
   resources :users, controller: "admins"
+
+  get "spare/:category", to: "spares#index", as: "spares_category"
 end
