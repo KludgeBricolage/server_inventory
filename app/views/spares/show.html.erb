@@ -2,18 +2,13 @@
   <h2>Spare #<%= @spare.id %></h2>
 
   <span>
+    <p class="label">Item Type</p>
+    <p class="value"><%= @spare.item_type %></p>
+  </span>
+
+  <span>
     <p class="label">Description</p>
     <p class="value"><%= @spare.description %></p>
-  </span>
-
-  <span>
-    <p class="label">Date delivered</p>
-    <p class="value"><%= @spare.delivered %></p>
-  </span>
-
-  <span>
-    <p class="label">Date warranty</p>
-    <p class="value"><%= @spare.warranty %></p>
   </span>
 
   <span>
@@ -22,8 +17,23 @@
   </span>
 
   <span>
+    <p class="label">Date Delivered</p>
+    <p class="value"><%= @spare.date_delivered %></p>
+  </span>
+
+  <span>
+    <p class="label">Date Warranty</p>
+    <p class="value"><%= @spare.date_warranty %></p>
+  </span>
+
+  <span>
     <p class="label">Balance</p>
     <p class="value"><%= @spare.balance %></p>
+  </span>
+
+  <span>
+    <p class="label">Category</p>
+    <p class="value"><%= @spare.category %></p>
   </span>
 
   <h3>

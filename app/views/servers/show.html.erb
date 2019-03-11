@@ -2,18 +2,33 @@
   <h2>Server #<%= @server.id %></h2>
 
   <span>
-    <p class="label">Host name</p>
-    <p class="value"><%= @server.host_name %></p>
+    <p class="label">Host Name</p>
+    <p class="value"><%=@server.host_name%></p>
   </span>
 
   <span>
-    <p class="label">Model</p>
-    <p class="value"><%= @server.model %></p>
+    <p class="label">Machine Model</p>
+    <p class="value"><%=@server.machine_model%></p>
   </span>
 
   <span>
-    <p class="label">Serial no</p>
-    <p class="value"><%= @server.serial_no %></p>
+    <p class="label">Operating System</p>
+    <p class="value"><%=@server.operating_system%></p>
+  </span>
+
+  <span>
+    <p class="label">Role</p>
+    <p class="value"><%=@server.role%></p>
+  </span>
+
+  <span>
+    <p class="label">Project</p>
+    <p class="value"><%=@server.project%></p>
+  </span>
+
+  <span>
+    <p class="label">Warranty Date</p>
+    <p class="value"><%=@server.date_warranty%></p>
   </span>
 
   <h3>

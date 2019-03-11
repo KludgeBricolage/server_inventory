@@ -75,6 +75,6 @@ class SparesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def spare_params
-      params.require(:spare).permit(:description, :date_delivered, :date_warranty, :stock, :balance)
+      params.require(:spare).permit(:item_type ,:description ,:stock ,:date_delivered ,:date_warranty ,:balance ,:category)
     end
 end

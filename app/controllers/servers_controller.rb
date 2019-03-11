@@ -75,6 +75,6 @@ class ServersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def server_params
-      params.require(:server).permit(:host_name, :model, :serial_no)
+      params.require(:server).permit(:host_name, :machine_model, :operating_system, :role, :project, :date_warranty)
     end
 end

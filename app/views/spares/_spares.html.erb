@@ -1,10 +1,13 @@
 <% spares.each do |spare| %>
   <tr data-link="<%=spare_path(spare.id)%>">
-    <td><%= link_to spare.description || '', spare %></td>
-    <td><%= link_to spare.delivered || '', spare %></td>
-    <td><%= link_to spare.warranty || '', spare %></td>
-    <td><%= link_to spare.stock || '', spare %></td>
-    <td><%= link_to spare.balance || '', spare %></td>
+    <td onclick="redirect(this)"><%= spare.item_type %></td>
+    <td onclick="redirect(this)"><%= spare.description %></td>
+    <td onclick="redirect(this)"><%= spare.stock %></td>
+    <td onclick="redirect(this)"><%= spare.date_delivered %></td>
+    <td onclick="redirect(this)"><%= spare.date_warranty %></td>
+    <td onclick="redirect(this)"><%= spare.balance %></td>
+    <td onclick="redirect(this)"><%= spare.category %></td>
+
     <% if current_user %>
       <td class="actions">
         <%= link_to fa_icon("edit"), edit_spare_path(spare) %>
@@ -16,7 +19,7 @@
 
 <script>
   function redirect(element) {
-    var link = element.getAttribute("data-link")
+    var link = element.parentElement.getAttribute("data-link")
     window.location.href = this.location.origin + link
   }
 </script>

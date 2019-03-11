@@ -23,7 +23,7 @@ class User < ApplicationRecord
 
   def postpone_email_change?
    false 
-end
+  end
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
@@ -35,6 +35,19 @@ end
       else
         where(username: conditions[:username]).first
       end
+    end
+  end
+
+  def full_user
+    "#{self.first_name} #{self.last_name}".strip + " (#{self.role.upcase})"
+  end
+
+  def whole_role
+    case self.role
+    when 'regular'
+      "Regular"
+    when 'admin'
+      "Administrator"
     end
   end
 end

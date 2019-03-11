@@ -1,7 +1,9 @@
 <% users.each do |user| %>
   <tr data-link="<%=user_path(user.id)%>">
-    <td><%= link_to user.username || '', user %></td>
-    <td><%= link_to user.role || '', user %></td>
+    <td onclick="redirect(this)"><%= user.username %></td>
+    <td onclick="redirect(this)"><%= user.first_name %></td>
+    <td onclick="redirect(this)"><%= user.last_name %></td>
+    <td onclick="redirect(this)"><%= user.whole_role %></td>
     <% if current_user %>
       <td class="actions">
         <%= link_to fa_icon("edit"), edit_user_path(user) %>
@@ -12,7 +14,7 @@
 
 <script>
   function redirect(element) {
-    var link = element.getAttribute("data-link")
+    var link = element.parentElement.getAttribute("data-link")
     window.location.href = this.location.origin + link
   }
 </script>

@@ -12,19 +12,34 @@
   <% end %>
   <h2><%= title %></h2>
 
-  <span>
+  <span>  
     <%= form.label :host_name, class: 'label'%>
-    <%= form.text_field :host_name, class: 'value' %>
+    <%= form.text_field :host_name , class: 'value'%>
   </span>
 
   <span>
-    <%= form.label :model, class: 'label'%>
-    <%= form.text_field :model, class: 'value'%>
+    <%= form.label :machine_model, class: 'label'%>
+    <%= form.select :machine_model, Server::SERVER_LIST.collect{|i| i}, class: 'value'%>
   </span>
 
   <span>
-    <%= form.label :serial_no, class: 'label' %>
-    <%= form.text_field :serial_no, class: 'value' %>
+    <%= form.label :operating_system, class: 'label'%>
+    <%= form.text_field :operating_system, class: 'value'%>
+  </span>
+
+  <span>
+    <%= form.label :role, class: 'label'%>
+    <%= form.text_field :role, class: 'value'%>
+  </span>
+
+  <span>
+    <%= form.label :project, class: 'label'%>
+    <%= form.text_field :project, class: 'value'%>
+  </span>
+
+  <span>
+    <%= form.label :date_warranty, class: 'label'%>
+    <%= form.text_field :date_warranty, class: 'value'%>
   </span>
 
   <h3>
@@ -35,3 +50,9 @@
     <%= link_to 'Save', "", onclick: "document.getElementById('server_form').submit()" %> <%= fa_icon("save") %>
   </h3>
 <% end %>
+
+<script>
+  document.addEventListener('turbolinks:load', function () {
+    flatpickr('#server_date_warranty', {dateFormat: "M-d-Y"});
+  })
+</script>

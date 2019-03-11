@@ -13,18 +13,13 @@
   <h2><%= title %></h2>
 
   <span>
-    <%= form.label :description, class: 'label'%>
+    <%= form.label :item_type, class: 'label' %>
+    <%= form.text_field :item_type, class: 'value' %>
+  </span>
+
+  <span>
+    <%= form.label :description, class: 'label' %>
     <%= form.text_field :description, class: 'value' %>
-  </span>
-
-  <span>
-    <%= form.label :date_delivered, class: 'label'%>
-    <%= form.text_field :date_delivered, class: 'value'%>
-  </span>
-
-  <span>
-    <%= form.label :date_warranty, class: 'label'%>
-    <%= form.text_field :date_warranty, class: 'value'%>
   </span>
 
   <span>
@@ -33,9 +28,25 @@
   </span>
 
   <span>
+    <%= form.label :date_delivered, class: 'label' %>
+    <%= form.text_field :date_delivered, class: 'value' %>
+  </span>
+
+  <span>
+    <%= form.label :date_warranty, class: 'label' %>
+    <%= form.text_field :date_warranty, class: 'value' %>
+  </span>
+
+  <span>
     <%= form.label :balance, class: 'label' %>
     <%= form.text_field :balance, class: 'value' %>
   </span>
+
+  <span>
+    <%= form.label :category, class: 'label' %>
+     <%= form.select :machine_model, Server::SERVER_LIST.collect{|i| i}, class: 'value'%>
+  </span>
+
 
   <h3>
     <%= link_to 'Back', spares_path %> |

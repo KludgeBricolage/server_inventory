@@ -1,10 +1,14 @@
 <% servers.each do |server| %>
   <tr data-link="<%=server_path(server.id)%>">
-    <td><%= link_to server.host_name || '', server %></td>
-    <td><%= link_to server.model || '', server %></td>
-    <td><%= link_to server.serial_no || '', server %></td>
+    <%# onclick was originally for tr but then actions %>
+    <td onclick="redirect(this)"><%= server.host_name %></td>
+    <td onclick="redirect(this)"><%= server.machine_model %></td>
+    <td onclick="redirect(this)"><%= server.operating_system %></td>
+    <td onclick="redirect(this)"><%= server.role %></td>
+    <td onclick="redirect(this)"><%= server.project %></td>
+    <td onclick="redirect(this)"><%= server.date_warranty %></td>
     <% if current_user %>
-      <td class="actions">
+      <td class="actions" onclick="e.stopPropagation()">
         <%= link_to fa_icon("edit"), edit_server_path(server) %>
         <%= link_to fa_icon("trash"), server, method: :delete, data: { confirm: 'Are you sure?' } %>
       </td>
@@ -14,7 +18,7 @@
 
 <script>
   function redirect(element) {
-    var link = element.getAttribute("data-link")
+    var link = element.parentElement.getAttribute("data-link")
     window.location.href = this.location.origin + link
   }
 </script>

@@ -1,32 +1,29 @@
 <%= form_with(model: user, local: true, class: 'single', id: 'user_form') do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(spare.errors.count, "error") %> prohibited this spare from being saved:</h2>
-
-      <ul>
-      <% spare.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
   <h2><%= title %></h2>
   <span>
     <%= form.label :username, class: 'label'%>
-    <%= form.text_field :username, class: 'value' %>
+    <%= form.text_field :username, class: 'value', required: true %>
   </span>
 
-  <% if action_name == "new" %>
-    <span>
-      <%= form.label :password, class: 'label' %><br />
-      <%= form.password_field :password, autocomplete: "new-password", class: 'value' %>
-    </span>
+  <span>
+    <%= form.label :first_name, class: 'label'%>
+    <%= form.text_field :first_name, class: 'value' %>
+  </span>
 
-    <span>
-      <%= form.label :password_confirmation, class: 'label' %><br />
-      <%= form.password_field :password_confirmation, autocomplete: "new-password", class: 'value' %>
-    </span>
-  <% end %>
+  <span>
+    <%= form.label :last_name, class: 'label'%>
+    <%= form.text_field :last_name, class: 'value' %>
+  </span>
+
+  <span>
+    <%= form.label :password, class: 'label' %><br />
+    <%= form.password_field :password, autocomplete: "new-password", class: 'value', required: true %>
+  </span>
+
+  <span>
+    <%= form.label :password_confirmation, class: 'label' %><br />
+    <%= form.password_field :password_confirmation, autocomplete: "new-password", class: 'value', required: true %>
+  </span>
 
   <% if current_user %>
     <span>

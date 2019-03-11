@@ -14,18 +14,23 @@ ActiveRecord::Schema.define(version: 2019_03_02_062546) do
 
   create_table "servers", force: :cascade do |t|
     t.string "host_name"
-    t.string "model"
-    t.string "serial_no"
+    t.integer "machine_model", null: false
+    t.string "operating_system"
+    t.string "role"
+    t.string "project"
+    t.datetime "date_warranty"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "spares", force: :cascade do |t|
+    t.string "item_type"
     t.string "description"
+    t.integer "stock"
     t.datetime "date_delivered"
     t.datetime "date_warranty"
-    t.integer "stock"
     t.float "balance", default: 0.0
+    t.integer "category", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -33,12 +38,14 @@ ActiveRecord::Schema.define(version: 2019_03_02_062546) do
   create_table "users", force: :cascade do |t|
     t.string "encrypted_password", default: "", null: false
     t.integer "role", default: 0
+    t.string "first_name"
+    t.string "last_name"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "username"
+    t.string "username", default: "", null: false
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end
